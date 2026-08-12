@@ -10,11 +10,11 @@ interface HeroSectionProps {
 export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
   return (
     <section className="relative w-full min-h-[640px] lg:min-h-[720px] flex items-center justify-center overflow-hidden bg-[#001e40]">
-      {/* Local Background Image Layer */}
+      {/* Background Image Layer with Fallback */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-10000 ease-out"
         style={{
-          backgroundImage: `url('/images/hero_water_plant.png')`,
+          backgroundImage: `url('/images/hero_water_plant.png'), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')`,
         }}
       />
 
@@ -49,7 +49,7 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto mb-14">
           <button
             onClick={onOpenQuoteModal}
-            className="inline-flex items-center justify-center gap-2 bg-[#1b6d24] hover:bg-[#15541c] text-white px-8 py-4 rounded-md font-bold text-base shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="inline-flex items-center justify-center gap-2 bg-[#1b6d24] hover:bg-[#15541c] text-white px-8 py-4 rounded-md font-bold text-base shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <span>Get Quotation</span>
             <ArrowRight className="w-5 h-5 text-[#a0f399]" />

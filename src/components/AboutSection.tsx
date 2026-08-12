@@ -78,6 +78,10 @@ export default function AboutSection() {
             <div className="relative h-[380px] sm:h-[480px] w-full rounded-xl overflow-hidden shadow-2xl border border-gray-200">
               <img
                 src="/images/about_blueprint.png"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src =
+                    "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80";
+                }}
                 alt="Industrial Water Treatment Facility Engineering Blueprint"
                 className="w-full h-full object-cover"
               />

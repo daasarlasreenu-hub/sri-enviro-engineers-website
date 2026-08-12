@@ -8,6 +8,7 @@ interface GalleryItem {
   title: string;
   category: string;
   imgUrl: string;
+  fallbackUrl: string;
   desc: string;
   colSpan: string;
   rowSpan: string;
@@ -19,6 +20,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: "Large Scale Tank Erection",
     category: "Turnkey Civil & Mechanical",
     imgUrl: "/images/gallery_tank.png",
+    fallbackUrl: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80",
     desc: "Heavy industrial steel & concrete water storage tanks engineered for 500 KLD sewage treatment capacity.",
     colSpan: "col-span-1 md:col-span-2",
     rowSpan: "row-span-2",
@@ -28,6 +30,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: "Biological Aeration Basin",
     category: "MBBR Technology",
     imgUrl: "/images/gallery_aeration.png",
+    fallbackUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
     desc: "High efficiency fine bubble diffuse aeration grid delivering optimal dissolved oxygen (DO) levels for bacterial digestion.",
     colSpan: "col-span-1",
     rowSpan: "row-span-1",
@@ -37,6 +40,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: "Pump Room & Manifold Setup",
     category: "Piping & Valves",
     imgUrl: "/images/gallery_pump.png",
+    fallbackUrl: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
     desc: "Duplex stainless steel filter feed pumps with automated VFD controllers and backwash valve manifolds.",
     colSpan: "col-span-1",
     rowSpan: "row-span-1",
@@ -46,6 +50,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     title: "Modular Package STP Installation",
     category: "Residential & Commercial",
     imgUrl: "/images/gallery_package_stp.png",
+    fallbackUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80",
     desc: "Compact prefabricated containerized STP plant for a 300-apartment residential complex in Hyderabad.",
     colSpan: "col-span-1 md:col-span-2",
     rowSpan: "row-span-1",
@@ -83,6 +88,9 @@ export default function GallerySection() {
             >
               <img
                 src={item.imgUrl}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = item.fallbackUrl;
+                }}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -114,6 +122,9 @@ export default function GallerySection() {
             <div className="h-[340px] sm:h-[420px] w-full overflow-hidden bg-black">
               <img
                 src={activeImage.imgUrl}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = activeImage.fallbackUrl;
+                }}
                 alt={activeImage.title}
                 className="w-full h-full object-cover"
               />

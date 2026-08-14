@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Check, ShieldCheck, Factory, Award, Wrench } from "lucide-react";
+import { IMAGES } from "./imageData";
 
 export default function AboutSection() {
   return (
@@ -77,11 +78,7 @@ export default function AboutSection() {
           <div className="relative">
             <div className="relative h-[380px] sm:h-[480px] w-full rounded-xl overflow-hidden shadow-2xl border border-gray-200">
               <img
-                src="/images/about_blueprint.png"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80";
-                }}
+                src={IMAGES.about}
                 alt="Industrial Water Treatment Facility Engineering Blueprint"
                 className="w-full h-full object-cover"
               />
@@ -98,13 +95,13 @@ export default function AboutSection() {
             </div>
 
             {/* Floating Stats Box */}
-            <div className="absolute -bottom-6 -left-4 sm:left-6 bg-white p-5 rounded-lg shadow-xl border border-gray-200 flex items-center gap-4 max-w-xs">
+            <div className="absolute -bottom-6 -left-4 sm:left-6 bg-[#001e40] text-white p-5 rounded-lg shadow-xl border border-[#003366] flex items-center gap-4 max-w-xs">
               <div className="w-12 h-12 rounded-lg bg-[#003366] text-white flex items-center justify-center shrink-0">
                 <Factory className="w-6 h-6 text-[#a0f399]" />
               </div>
               <div>
-                <div className="font-heading font-extrabold text-2xl text-[#001e40]">100%</div>
-                <div className="text-xs text-gray-600 font-medium">Turnkey Quality Assurance &amp; Operational Safety</div>
+                <div className="font-heading font-extrabold text-2xl text-[#a0f399]">100%</div>
+                <div className="text-xs text-slate-200 font-medium">Turnkey Quality Assurance &amp; Operational Safety</div>
               </div>
             </div>
           </div>

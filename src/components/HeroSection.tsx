@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ShieldCheck, Cpu, Droplets, ArrowRight, CheckCircle2 } from "lucide-react";
+import { IMAGES } from "./imageData";
 
 interface HeroSectionProps {
   onOpenQuoteModal: () => void;
@@ -10,18 +11,18 @@ interface HeroSectionProps {
 export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
   return (
     <section className="relative w-full min-h-[640px] lg:min-h-[720px] flex items-center justify-center overflow-hidden bg-[#001e40]">
-      {/* Background Image Layer with Fallback */}
+      {/* Background Industrial Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-10000 ease-out"
         style={{
-          backgroundImage: `url('/images/hero_water_plant.png'), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('${IMAGES.hero}')`,
         }}
       />
 
-      {/* Gradient Overlay */}
+      {/* Dark Navy Blue Gradient Overlay for High Readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#001e40]/95 via-[#001e40]/85 to-[#003366]/75" />
 
-      {/* Subtle Pattern Grid */}
+      {/* Pattern Grid */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
 
       {/* Content Container */}
